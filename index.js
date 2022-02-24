@@ -1,16 +1,16 @@
 const customExpress = require('./config/customExpress')
-const conexao = require('./infrestrutura/conexao')
+const conn = require('./structure/conn')
 
-conexao.connect(erro => {
-    if (erro) {
-        console.log(erro)
+var door = 3000;
+
+conn.connect(error => {
+    if (error) {
+        console.log(error)
     } else {
         const app = customExpress();
 
-        app.listen(7201, () => console.log(">Inicializando Servidor<"));
+        app.listen(door, () => console.log(">Starting server on door " + door + "<"));
 
-        console.log('>Inicializando Database<')
+        console.log('>Starting Database<')
     }
 })
-
-
